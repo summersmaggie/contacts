@@ -1,4 +1,5 @@
 class Contacts
+  # attr_accessor :first_name, :last_name, :phone_number, :job_title, :company, :contact_type
 
   @@list = []
 
@@ -16,7 +17,7 @@ class Contacts
   end
 
   def save
-  
+    @@list.push(self)
   end
 
 
