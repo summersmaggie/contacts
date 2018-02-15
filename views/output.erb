@@ -1,7 +1,29 @@
 <h2>Here are all your contacts:</h2>
 
+<!-- # <% @list.each do |contact| %>
+#   <h4><%= contact.first_name %><%= " " %><%= contact.last_name %></h4>
+# <% end %>
+#
+# <a href='/'>Return to home page </a> -->
+
+
 <% @list.each do |contact| %>
-  <h4><%= contact.first_name %><%= " " %><%= contact.last_name %></h4>
+  <h3><a href='output/<%= contact.id() %>'><%= contact.first_name %><%= " " %><%= contact.last_name %></a><h3>
 <% end %>
+
+<form action="/output/:id" method="post">
+  <div class="form-group">
+    <label for="street">Street: </label>
+    <input type="text" name="street" id="street" class="form-control">
+    <label for="city">City: </label>
+    <input type="text" name="city" id="city" class="form-control">
+    <label for="state">State: </label>
+    <input type="text" name="state" id="state" class="form-control">
+    <label for="zip_code">Zipcode: </label>
+    <input type="text" name="zip_code" id="zip_code" class="form-control">
+  </div>
+  <button type="submit" class="btn">ADD TO LIST NOW!</button>
+</form>
+
 
 <a href='/'>Return to home page </a>

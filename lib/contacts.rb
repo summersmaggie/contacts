@@ -22,6 +22,7 @@ end
 
 class Contacts
   attr_accessor :first_name, :last_name, :phone_number, :job_title, :company, :contact_type, :zip_code
+  attr_reader :id
 
   @@list = []
 
@@ -32,6 +33,7 @@ class Contacts
     @job_title = attributes.fetch(:job_title)
     @company = attributes.fetch(:company)
     @contact_type = attributes.fetch(:contact_type)
+    @id = @@list.length + 1
   end
 
   def self.all
@@ -44,6 +46,15 @@ class Contacts
 
   def self.sort()
     @@list.sort_by! {|contact| contact.last_name}
+  end
+
+  def self.find(id)
+    contact_id = id.to_i()
+    @@list.each do |contact|
+      if contact.id == contact_id
+        return contact
+      end
+    end
   end
 end
 

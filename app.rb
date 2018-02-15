@@ -9,6 +9,15 @@ get('/') do
   erb(:input)
 end
 
+get('output/:id') do
+  @contact = Contacts.find(params[:id])
+  street = params["street"]
+  city = params["city"]
+  state = params["state"]
+  zip_code = params["zip_code"]
+  erb(:output)
+end
+
 post('/output') do
   first_name = params["first_name"]
   last_name = params["last_name"]
