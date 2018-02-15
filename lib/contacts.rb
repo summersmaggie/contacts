@@ -1,3 +1,5 @@
+
+
 class Address
   @@address = []
 
@@ -14,12 +16,11 @@ class Address
 
   def add_address
     @@address.push(self)
-binding.pry
+
   end
 end
 
 class Contacts
-
   attr_accessor :first_name, :last_name, :phone_number, :job_title, :company, :contact_type, :zip_code
 
   @@list = []
@@ -39,10 +40,17 @@ class Contacts
 
   def save
     @@list.push(self)
-    @@list.push(@@address)
   end
 
   def self.sort()
     @@list.sort_by! {|contact| contact.last_name}
   end
 end
+
+# class Masterbook
+#   def final_push
+#     @master_array = []
+#   end
+# end
+#
+# @output = Masterbook.new [Contacts  .new, Address.new]
