@@ -18,8 +18,8 @@ post('/output') do
   contact_type = params["contact_type"]
 
   contact = Contacts.new(params)
-
   contact.save()
+  Contacts.sort()
   @list = Contacts.all
   erb(:output)
 end

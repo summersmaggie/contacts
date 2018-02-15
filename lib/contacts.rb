@@ -1,4 +1,5 @@
 class Contacts
+
   attr_accessor :first_name, :last_name, :phone_number, :job_title, :company, :contact_type
 
   @@list = []
@@ -18,6 +19,10 @@ class Contacts
 
   def save
     @@list.push(self)
+  end
+
+  def self.sort()
+    @@list.sort_by! {|contact| contact.last_name}
   end
 
 
