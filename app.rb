@@ -9,7 +9,7 @@ get('/') do
   erb(:input)
 end
 
-post('/') do
+post('/output') do
   first_name = params["first_name"]
   last_name = params["last_name"]
   phone_number = params["phone_number"]
@@ -21,5 +21,5 @@ post('/') do
 
   contact.save()
   @list = Contacts.all
-  erb(:input)
+  erb(:output)
 end
